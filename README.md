@@ -1,18 +1,15 @@
+# Informations
+Ce dossier contient ce qu'il faut pour pouvoir effectuer l'étape 4 du projet morpion. Dans ce dossier il y a ce qu'il faut pour afficher une interface basique avec OpenGL (Peu de fonctions à utiliser pour que le jeu soit fonctionnel)
 
+Dans le fichier `demo.c` vous trouverez toutes les fonctions et comment les utiliser.
 
-# Information
+`demo.c` est juste un exemple que vous pouvez lancer. Mais ce n'est en aucun cas utile dans le projet.
 
-Ce dossier contient ce qu'il faut pour pouvoir effectuer l'étape 4 du projet morpion. Dans ce dossier il y a ce qu'il faut pour afficher une interface basic avec OpenGL (Peut de fonction a utiliser pour que le jeux soit fonctionnel)
-
-Dans le fichier `demo.c` vous trouverez toute les fonctions et comment les utiliser.
-
-`demo.c` est juste un exemple que vous pouvez lancer. Mais n'est en aucun cas utile dans le projet
-
-Deplus, les fichier `window.c` et `window.h` peuvent être utilisé dans d'autre projet 2D.
+De plus, les fichier `window.c` et `window.h` peuvent être utilisé dans d'autre projet 2D.
 
 # Mise en place
 
-Dans le dossier vous trouverez c'est fichier :
+Dans le dossier vous trouverez ces fichier :
 - `window.h`
 - `window.c`
 - `stb_image.c`
@@ -20,9 +17,9 @@ Dans le dossier vous trouverez c'est fichier :
 - `player_manager_opengl.c`
 - `board_view_opengl.c`
 
-C'est 6 fichier sont à glisser dans votre projet.
+Ces 6 fichiers sont à glisser dans votre projet.
 
-Pour le dossier `resources`, il faut le mettre dans le même dossier que l'executable final. Ce fichier ne sera pas utilisé lors de la compilation, mais accèder lors de l'execution.
+Pour le dossier `resources`, il faut le mettre dans le même dossier que l'executable final. Ce fichier ne servira pas à la compilation, mais sera ouvert à l'exécution.
 
 exemple : 
 
@@ -37,7 +34,7 @@ exemple :
 
 <br><br>
 
-il vous faudra aussi modifier votre ligne de compilation.
+Il vous faudra aussi modifier votre ligne de compilation.
 
 ### Pour GCC : 
 
@@ -55,7 +52,7 @@ Remplacez les simplement par :
 
 # Installation necessaire :
 
-Il y a 3 librairie qu'il faudra installer pour pouvoir utiliser ce code.
+Il y a 3 librairies qu'il faudra installer pour pouvoir utiliser ce code.
 
 - GLFW
 - GLEW
@@ -92,7 +89,7 @@ brew install glfw glew
 ## Pour Windows (Non testé): 
 Pour windows il faut télécharger les librairie et les installer manuellement.
 
-- GLFW : Téléchargez depuis [glfw.org](https://www.glfw.org/download.html) et suivez les instructions d'installation.
+- GLFW : Si vous avez chocolatey d'installé, il vous suffit d'exécuter `choco install glfw3`. Sinon, téléchargez depuis [glfw.org](https://www.glfw.org/download.html) et suivez les instructions d'installation.
 - GLEW : Téléchargez depuis [glew.sourceforge.net](https://glew.sourceforge.net/) et suivez les instructions d'installation.
 - OpenGL : Généralement, OpenGL est inclus avec les pilotes de votre carte graphique. Assurez-vous que vos pilotes sont à jour.
 
@@ -104,9 +101,9 @@ Avant de lancer le programme, vous devez ajouter les definition de compilation
 
 ### Avec GCC
 
-Dans la ligne de compilation ajouter les arguments `-lglfw`, `-lGL`, `-lGLEW`, `-lm -Wno-implicit-function-declaration`.
+Dans la ligne de compilation, ajoutez les arguments `-lglfw`, `-lGL`, `-lGLEW`, `-lm -Wno-implicit-function-declaration`.
 
-Noubliez pas d'ajouter les .c dans la ligne de compilation `stb_image.c window.c`
+Noubliez pas d'ajouter les `.c` dans la ligne de compilation `stb_image.c window.c`
 
 Comme par exemple : 
 ```
@@ -136,13 +133,13 @@ Cela devrait configurer votre projet pour lier correctement les bibliothèques G
 
 ### Pour GCC : 
 
-Si vous souhaitez lancer le programme de demo, vous pouvez entre la commande suivante.
+Si vous souhaitez lancer le programme de demo, vous pouvez entrer la commande suivante.
 
 ```
 gcc demo.c stb_image.c window.c -o demo -lglfw -lGL -lGLEW -lm -Wno-implicit-function-declaration
 ```
 
-Si vous souhaitez lancer le projet. Voici un exemple de à quoi peut ressemblé la ligne de compilation : 
+Si vous souhaitez lancer le projet. Voici un exemple de à quoi peut ressembler la ligne de compilation : 
 
 ```
 gcc main.c game.c board.c board_view_opengl.c player_manager_opengl.c window.c stb_image.c -o tictacto -DCONFIG_PLAYER_MANAGER_OPENGL -DCONFIG_OPENGLUI  -lglfw -lGL -lGLEW -lm -Wno-implicit-function-declaration
@@ -150,4 +147,4 @@ gcc main.c game.c board.c board_view_opengl.c player_manager_opengl.c window.c s
 
 ### Pour Visual Studio :
 
-il vous suffit d'appuyer sur le bouton build && run
+il vous suffit d'appuyer sur le bouton `build && run`
