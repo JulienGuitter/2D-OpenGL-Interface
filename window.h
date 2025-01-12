@@ -19,4 +19,6 @@ unsigned int add_object(const char* texture_path, double width, double height);
 void draw_object(unsigned int object, double x, double y);
 void render_window();
 
+void get_window_size(int* width, int* height);
+
 #endif // WINDOW_H

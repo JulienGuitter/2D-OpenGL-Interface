@@ -65,7 +65,8 @@ void init_shader_program();
 unsigned int load_texture(const char* path);
 void setRectangleVertices(float vertex[], double width, double height);
 
-float convert_to_opengl_pos(double pos);
+float convert_to_opengl_pos_width(double pos);
+float convert_to_opengl_pos_height(double pos);
 
 void windowSizeCallback(GLFWwindow* window, int width, int height);
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
@@ -191,8 +192,8 @@ unsigned int load_texture(const char* path){
 }
 
 void setRectangleVertices(float vertex[], double width, double height){
-    float new_width = convert_to_opengl_pos(width);
-    float new_height = convert_to_opengl_pos(height);
+    float new_width = convert_to_opengl_pos_width(width);
+    float new_height = convert_to_opengl_pos_height(height);
 
     float vertices[] = {
         -1.0f,              -1.0f + new_height,     0.0f,       0.0f, 1.0f,
@@ -262,8 +263,8 @@ unsigned int add_object(const char* texture_path, double width, double height){
 void draw_object(unsigned int object, double x, double y){
     int offsetLocation = glGetUniformLocation(shaderProgram, "uOffset");
 
-    float new_x = convert_to_opengl_pos(x);
-    float new_y = convert_to_opengl_pos(y);
+    float new_x = convert_to_opengl_pos_width(x);
+    float new_y = convert_to_opengl_pos_height(y);
 
     glUniform3fv(offsetLocation, 1, (float[]){new_x, new_y, 0.0f});
 
@@ -284,14 +285,31 @@ void render_window(){
     glfwPollEvents();
 }
 
-float convert_to_opengl_pos(double pos){
+float convert_to_opengl_pos_width(double pos){
     return ((float)pos / (float)win_width)*2;
+}
+
+float convert_to_opengl_pos_height(double pos){
+    return ((float)pos / (float)win_height)*2;
+}
+
+void get_window_size(int* width, int* height){
+    glfwGetFramebufferSize(window, width, height);
 }
 
 
 
 void windowSizeCallback(GLFWwindow* window, int width, int height){
     glViewport(0, 0, width, height);
+
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(0, width, 0, height, -1, 1);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+    win_width = width;
+    win_height = height;
 }
 
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
@@ -301,6 +319,13 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
         double xpos, ypos;
         //getting cursor position
         glfwGetCursorPos(window, &xpos, &ypos);
-        mouseCallback(xpos, win_height-ypos);
+
+        int width, height;
+        glfwGetFramebufferSize(window, &width, &height);
+
+        double x = xpos;
+        double y = height - ypos;
+
+        mouseCallback(x, y);
     }
 }
