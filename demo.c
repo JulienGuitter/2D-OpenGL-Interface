@@ -10,31 +10,28 @@ unsigned int background, circle;
 
 static float pos_x, pos_y = 0;
 
-void show_items(){
-    draw_object(background, 0, 0);
-
-
-    draw_object(circle, pos_x, pos_y);
-}
-
 void mouse_clicked(double x, double y){
-    // printf("Mouse clicked at %f, %f\n", x, y);
+    printf("Mouse clicked at %f, %f\n", x, y);
 
     int width, height;
     get_window_size(&width, &height);
 
     pos_x = (float)x-((int)x % (int)(width/3));
     pos_y = (float)y-((int)y%(int)(height/3));
+
+    draw_image(circle, pos_x, pos_y);
 }
 
 
 int main(){
-    init_window(DEFAULT_WIN_SIZE, DEFAULT_WIN_SIZE, false);
-    set_render_callback(show_items);
+    init_window(DEFAULT_WIN_SIZE, DEFAULT_WIN_SIZE, true, "Demo");
+    
     set_mouse_callback(mouse_clicked);
 
-    background = add_object(RESOURCES_PATH "background.png", DEFAULT_WIN_SIZE, DEFAULT_WIN_SIZE);
-    circle = add_object(RESOURCES_PATH "sprite_O.png", DEFAULT_WIN_SIZE/3, DEFAULT_WIN_SIZE/3);
+    background = add_image(RESOURCES_PATH "background.png", DEFAULT_WIN_SIZE, DEFAULT_WIN_SIZE);
+    circle = add_image(RESOURCES_PATH "sprite_O.png", DEFAULT_WIN_SIZE/3, DEFAULT_WIN_SIZE/3);
+
+    draw_image(background, 0, 0);
     
 
     while (!windowShouldClose()){
