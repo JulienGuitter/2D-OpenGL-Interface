@@ -201,10 +201,10 @@ void setRectangleVertices(float vertex[], double width, double height){
     float new_height = convert_to_opengl_pos_height(height);
 
     float vertices[] = {
-        -1.0f,              -1.0f + new_height,     0.0f,       0.0f, 1.0f,
-        -1.0f,              -1.0f,                  0.0f,       0.0f, 0.0f,
-        -1.0f + new_width,  -1.0f,                  0.0f,       1.0f, 0.0f,
-        -1.0f + new_width,  -1.0f + new_height,     0.0f,       1.0f, 1.0f
+        -1.0f,              -1.0f + new_height,     0.0f,       0.0f, 0.0f,
+        -1.0f,              -1.0f,                  0.0f,       0.0f, 1.0f,
+        -1.0f + new_width,  -1.0f,                  0.0f,       1.0f, 1.0f,
+        -1.0f + new_width,  -1.0f + new_height,     0.0f,       1.0f, 0.0f
     };
     for (int i = 0; i < RECTANGLE_VERTEX_SIZE; i++){
         vertex[i] = vertices[i];
@@ -241,7 +241,7 @@ unsigned int add_image(const char* texture_path, double width, double height){
         return -1;
     }
 
-    setRectangleVertices(vertices, width, width);
+    setRectangleVertices(vertices, width, height);
 
     glGenBuffers(1, &VBO);
     glGenBuffers(1, &EBO);
