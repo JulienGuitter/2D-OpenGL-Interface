@@ -1,5 +1,5 @@
 # Informations
-Ce dossier contient ce qu'il faut pour pouvoir effectuer l'étape 4 du projet morpion. Dans ce dossier il y a ce qu'il faut pour afficher une interface basique avec OpenGL (Peu de fonctions à utiliser pour que le jeu soit fonctionnel)
+Ce dossier contient ce qu'il faut pour pouvoir effectuer l'étape 3 du projet morpion. Dans ce dossier il y a ce qu'il faut pour afficher une interface basique avec OpenGL (Peu de fonctions à utiliser pour que le jeu soit fonctionnel)
 
 Dans le fichier `demo.c` vous trouverez toutes les fonctions et comment les utiliser.
 
@@ -38,7 +38,7 @@ Il vous faudra aussi modifier votre ligne de compilation.
 
 ### Pour GCC : 
 
-Remplace les argument `-DCONFIG_PLAYER_MANAGER_SCANF` et `-DCONFIG_TEXTUI` de l'étape 3 par `-DCONFIG_PLAYER_MANAGER_OPENGL -DCONFIG_OPENGLUI`
+Remplace les argument `-DCONFIG_PLAYER_MANAGER_SCANF` et `-DCONFIG_TEXTUI` de l'étape 2 par `-DCONFIG_PLAYER_MANAGER_OPENGL -DCONFIG_OPENGLUI`
 
 ### Pour Visual Studio : 
 
