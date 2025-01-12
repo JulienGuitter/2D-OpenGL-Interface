@@ -19,13 +19,9 @@
 #define RESOURCES_PATH      "./resources/"
 #define WIN_SIZE            600
 
-void render(){
-	// TODO: C'est ici que vous devez dessiner les images
-}
-
 void BoardView_init (void)
 {
-	init_window(WIN_SIZE, WIN_SIZE, false);
+	init_window(WIN_SIZE, WIN_SIZE, false, "Morpion");
 	set_render_callback(render);
 }
 
