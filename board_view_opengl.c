@@ -25,7 +25,7 @@ void render(){
 
 void BoardView_init (void)
 {
-	init_window(WIN_SIZE, WIN_SIZE);
+	init_window(WIN_SIZE, WIN_SIZE, false);
 	set_render_callback(render);
 }
 
