@@ -5,6 +5,7 @@
   *   @date 1 jan 2025
   */
 
+#include <stdbool.h>
 #include <GLFW/glfw3.h>
 #include "window.h"
 #include "stb_image.h"
@@ -73,7 +74,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 
 
 
-void init_window(int width, int height){
+void init_window(int width, int height, bool resizable){
 
     win_width = width;
     win_height = height;
@@ -86,6 +87,10 @@ void init_window(int width, int height){
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+    if(!resizable){
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+    }
 
     window = glfwCreateWindow(width, height, "Morpion", NULL, NULL);
     if (!window) {

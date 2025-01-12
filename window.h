@@ -8,7 +8,7 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-void init_window(int width, int height);
+void init_window(int width, int height, bool resizable);
 void set_render_callback(void (*callback)(void));
 void set_mouse_callback(void (*callback)(double, double));
 

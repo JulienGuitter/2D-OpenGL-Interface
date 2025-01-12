@@ -41,10 +41,6 @@ void BoardView_displayAll (void)
 
 void BoardView_displaySquare (Coordinate x, Coordinate y, PieceType kindOfPiece)
 {
-	/* utiliser "render" pour afficher le sprite correspondant à kindOfPiece à
-	 * l'endroit correspondant aux coordonnées logiques "x" et "y".
-	 */
-
 }
 
 void BoardView_displayEndOfGame (GameResult result)

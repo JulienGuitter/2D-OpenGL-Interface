@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include "demo.h"
 #include "window.h"
 
@@ -25,7 +26,7 @@ void mouse_clicked(double x, double y){
 
 
 int main(){
-    init_window(WIN_SIZE, WIN_SIZE);
+    init_window(WIN_SIZE, WIN_SIZE, true);
     set_render_callback(show_items);
     set_mouse_callback(mouse_clicked);
 
