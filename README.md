@@ -139,6 +139,15 @@ Si vous souhaitez lancer le programme de demo, vous pouvez entrer la commande su
 gcc demo.c stb_image.c window.c -o demo -lglfw -lGL -lGLEW -lm -Wno-implicit-function-declaration
 ```
 
+##### Pour MacOS
+```
+gcc $(shell pkg-config --cflags glfw3 glew) -DCONFIG_PLAYER_MANAGER_OPENGL -DCONFIG_OPENGLUI \
+        $(shell pkg-config --libs glfw3 glew) -framework OpenGL -lm -Wno-implicit-function-declaration \
+        demo.c stb_image.c window.c  -o ./build/main && ./build/main
+```
+
+
+
 Si vous souhaitez lancer le projet. Voici un exemple de à quoi peut ressembler la ligne de compilation : 
 
 ```
