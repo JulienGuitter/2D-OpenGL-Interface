@@ -20,7 +20,7 @@
 #define WIN_SIZE            600
 
 void render(){
-	
+	// TODO: C'est ici que vous devez dessiner les images
 }
 
 void BoardView_init (void)
