@@ -20,8 +20,6 @@ void mouse_clicked(double x, double y){
     pos_y = (float)y-((int)y%(int)(height/3));
 
     draw_image(circle, pos_x, pos_y);
-
-    close_window();
 }
 
 
